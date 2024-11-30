@@ -1,0 +1,118 @@
+/* App.css */
+
+/* Reset default margin/padding for better control */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* Set the background and font */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f7fa;
+  display:flexbox;
+  justify-content: center;
+  align-items: center;
+  margin-left: 100px;
+  padding-left: 450px;
+  height: 100vh;
+  margin: 0;
+}
+
+/* Main container for the app */
+.app-container {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Header styling */
+h1 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+/* Button styles */
+button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-top: 10px;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+  background-color: #549b58;
+  transform: scale(1.05); /* Slight zoom effect */
+}
+
+/* Styling for input field */
+input {
+  padding: 10px;
+  font-size: 16px;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+/* Styling for the alerts */
+.alert {
+  background-color: #ff9800;
+  color: white;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 4px;
+}
+
+.success {
+  background-color: #4caf50;
+}
+
+.error {
+  background-color: #f44336;
+}
+
+/* Full-width horizontal list */
+.horizontal-list {
+  display:inline-flex;
+  justify-content: space-between; /* Space items across the full width */
+  gap: 10px; /* Space between items */
+  flex-wrap: wrap; /* Wrap if items overflow */
+  margin-bottom: 20px;
+  padding: 10px 0;
+  width: 100%; /* Ensure the list takes full width */
+}
+
+.horizontal-list span {
+  padding: 8px 16px;
+  background-color: #f4f7fa;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  flex: 1; /* Allow items to grow and fill the width */
+  text-align: center;
+}
+
+.horizontal-list span:hover {
+  background-color: #e0e0e0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .app-container {
+    padding: 20px;
+    width: 90%;
+  }
+}
