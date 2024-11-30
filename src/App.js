@@ -6,7 +6,8 @@ function App() {
   const [cx, setCx] = useState(null);
   const [dx, setDx] = useState(null);
   const [prfOutput, setPrfOutput] = useState(null);
-  const [x, setX] = useState('');
+  const [decryptedData, setDecryptedData] = useState(null); // To store decrypted original input
+  const [x, setX] = useState('');  // Store user input here
   const [message, setMessage] = useState('');
 
   // Initialize the client and server
@@ -52,10 +53,20 @@ function App() {
     }
   };
 
+  // Decrypt the response to retrieve the original input
+  const decrypt = async () => {
+    try {
+      const response = await axios.post("http://localhost:8000/decrypt", { dX: dx });
+      setDecryptedData(response.data.originalString); // Store the original input returned by the server
+      setMessage({ text: "Decryption successful!", type: "success" });
+    } catch (error) {
+      setMessage({ text: "Error during decryption.", type: "error" });
+    }
+  };
+
   return (
     <div className="app-container">
-      <h1>Lattice-Based PRF Simulator</h1>
-
+      <h1>VOPRF IMPLEMENTATION</h1>
       {message && (
         <div className={`alert ${message.type}`}>
           {message.text}
@@ -71,7 +82,7 @@ function App() {
           type="text"
           placeholder="Enter binary string (x)"
           value={x}
-          onChange={(e) => setX(e.target.value)}
+          onChange={(e) => setX(e.target.value)} // Store user input in `x`
         />
         <button onClick={sendQuery} disabled={!x}>
           Send Query
@@ -99,6 +110,7 @@ function App() {
             ))}
           </div>
           <button onClick={finalize}>Finalize PRF</button>
+          <button onClick={decrypt}>Decrypt</button> {/* New decrypt button */}
         </div>
       )}
 
@@ -110,6 +122,13 @@ function App() {
               <span key={index}>{item}</span>
             ))}
           </div>
+        </div>
+      )}
+
+      {decryptedData && ( // Display the original input after decryption
+        <div className="decryptedData">
+          <h3>DECRYPTED DATA :</h3>
+          <p>{decryptedData}</p> {/* Display the original input string */}
         </div>
       )}
     </div>
