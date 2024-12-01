@@ -1,23 +1,20 @@
-/* Reset default margin/padding for better control */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Set the background and font */
 body {
   font-family: 'Arial', sans-serif;
   background-color: #f4f7fa;
   display: flex;
   justify-content: center;
-  align-items: center;
   padding: 0;
   margin: 0;
-  height: 100vh;
+  min-height: 100vh; 
+  overflow-y: auto; 
 }
 
-/* Main container for the app */
 .app-container {
   background: #ffffff;
   padding: 40px;
@@ -25,10 +22,10 @@ body {
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
   max-width: 800px;
   width: 100%;
+  margin: 20px auto; 
   text-align: center;
 }
 
-/* Header styling */
 h1 {
   font-size: 28px;
   color: #333;
@@ -45,18 +42,17 @@ button {
   font-size: 18px;
   cursor: pointer;
   border-radius: 4px;
-  margin-top: 15px;
-  transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s ease;
+  margin-top: 20px;
   margin-left: 15px;
+  margin-bottom: 15px;
+  transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s ease;
 }
 
 button:hover {
   background-color: #549b58;
-  transform: scale(1.05); /* Slight zoom effect */
+  transform: scale(1.05); 
   box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
 }
-
-
 
 /* Styling for input field */
 input {
@@ -96,12 +92,12 @@ input:focus {
 /* Full-width horizontal list */
 .horizontal-list {
   display: inline-flex;
-  justify-content: space-evenly; /* Spread items evenly across the width */
-  gap: 15px; /* More space between items */
-  flex-wrap: wrap; /* Wrap if items overflow */
+  justify-content: space-evenly; 
+  gap: 15px; 
+  flex-wrap: wrap; 
   margin-bottom: 25px;
   padding: 10px 0;
-  width: 100%; /* Ensure the list takes full width */
+  width: 100%; 
 }
 
 .horizontal-list span {
@@ -111,32 +107,39 @@ input:focus {
   border-radius: 4px;
   font-size: 16px;
   text-align: center;
-  flex: 1 1 20%; /* Allow items to grow and fill the width */
-  min-width: 80px; /* Minimum width for each item */
+  flex: 1 1 20%; 
+  min-width: 80px; 
+  margin-bottom: 15px;
 }
 
 .horizontal-list span:hover {
   background-color: #e0e0e0;
   cursor: pointer;
 }
-/* Styling the decrypted data container */
-/* Styling the decrypted data container */
 
+/* Styling the decrypted data container */
+.decryptedData {
+  background-color: #f4f7fa; 
+  border: 1px solid #ddd;
+  padding: 20px; 
+  border-radius: 8px; 
+  margin-top: 20px; 
+  margin-left: 15px; 
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+}
 
-/* Styling the header */
 .decryptedData h3 {
   font-size: 20px;
-  color: #050705; /* Green color to indicate success */
-  margin-bottom: 10px; /* Space between the header and the text */
+  color: #050705; 
+  margin-bottom: 10px;
   font-weight: 600;
 }
 
-/* Styling the text */
 .decryptedData p {
   font-size: 25px;
-  color: #090909; /* Darker text for readability */
-  line-height: 1.6; 
-  margin: 0; /* Reset default margin */
+  color: #090909;
+  line-height: 1.6;
+  margin: 0;
 }
 
 /* Responsive Design */
@@ -156,21 +159,6 @@ input:focus {
   }
 
   .horizontal-list span {
-    flex: 1 1 45%; /* Make items occupy 45% of the width on smaller screens */
-  }
-}
-
-@media (max-width: 480px) {
-  .horizontal-list span {
-    flex: 1 1 100%; /* Make items take full width on very small screens */
-  }
-
-  h1 {
-    font-size: 22px;
-  }
-
-  button {
-    padding: 10px 15px;
-    font-size: 14px;
+    flex: 1 1 45%; 
   }
 }
