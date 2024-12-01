@@ -28,6 +28,7 @@ function addPolynomials(poly1, poly2, modulus) {
 }
 
 function multiplyPolynomials(poly1, poly2, modulus) {
+    
   const degree = poly1.length;
   const result = Array(degree * 2).fill(0);
 
