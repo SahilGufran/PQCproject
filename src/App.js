@@ -58,7 +58,7 @@ function App() {
     try {
       const response = await axios.post("http://localhost:8000/decrypt", { dX: dx });
       setDecryptedData(response.data.originalString); // Store the original input returned by the server
-      setMessage({ text: "Decryption successful!", type: "success" });
+      setMessage({ text: "ENCRYPTED SUCCESSFULLY!", type: "success" });
     } catch (error) {
       setMessage({ text: "Error during decryption.", type: "error" });
     }
@@ -110,7 +110,7 @@ function App() {
             ))}
           </div>
           <button onClick={finalize}>Finalize PRF</button>
-          <button onClick={decrypt}>Decrypt</button> {/* New decrypt button */}
+          <button onClick={decrypt}>Decrypt/Original Input</button> {/* New decrypt button */}
         </div>
       )}
 
@@ -125,10 +125,10 @@ function App() {
         </div>
       )}
 
-      {decryptedData && ( // Display the original input after decryption
+      {decryptedData && (            // Displaying the original input after decryption
         <div className="decryptedData">
-          <h3>DECRYPTED DATA :</h3>
-          <p>{decryptedData}</p> {/* Display the original input string */}
+          <h3>DECRYPTED DATA / ORIGINAL INPUT :</h3>
+          <p>{decryptedData}</p> 
         </div>
       )}
     </div>
